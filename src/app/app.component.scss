@@ -1,0 +1,12 @@
+.line-checked{
+    text-decoration: line-through red;
+}
+
+ul{
+    list-style: none;
+    padding-left: 0;
+    li{
+        // border-style: solid;
+        border-bottom: 1px solid black;
+    }
+}
