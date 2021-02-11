@@ -17,8 +17,9 @@ export class AppComponent implements OnInit {
   faTrash = faTrash;
 
   toDoListArray!: any[];
+  listText!: String;
 
-  constructor(private service: ServiceService) { }
+  constructor(public service: ServiceService) { }
 
   ngOnInit() {
     this.service.getToDoList().snapshotChanges()
@@ -40,9 +41,12 @@ export class AppComponent implements OnInit {
   }
 
   onAdd(itemTitle: any) {
+
     this.service.addList(itemTitle.value);
     itemTitle.value = null;
+
   }
+
 
   onCheck(itemchecked: boolean, key: any) {
     let a = !itemchecked

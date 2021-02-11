@@ -8,6 +8,7 @@ import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 export class ServiceService {
 
   toDoList!: AngularFireList<any>;
+  public isNull!: Boolean
 
   constructor(private firebase: AngularFireDatabase) { }
 
@@ -17,10 +18,16 @@ export class ServiceService {
   }
 
   addList(title: string) {
-    this.toDoList.push({
-      title: title,
-      checked: false
-    });
+    if (title == '') {
+      this.isNull = true
+    } else {
+      this.isNull = false
+      this.toDoList.push({
+        title: title,
+        checked: false
+      });
+    }
+
   }
 
   checkList($key: string, flag: boolean) {
